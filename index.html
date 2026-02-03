@@ -36,13 +36,23 @@
 
     /* ✅ 标题：强制一行 + 响应式字号 + 更紧凑 */
     h1 {
-      color: #ff1493;
-      font-size: clamp(1.8em, 5vw, 2.3em);
-      margin-bottom: 14px;
-      white-space: nowrap;     /* ✅ 强制一行 */
-      line-height: 1.15;
-      animation: pulse 1.5s ease-in-out infinite;
-    }
+  color: #ff1493;
+  font-size: clamp(1.6em, 5vw, 2.3em);
+  margin-bottom: 14px;
+  line-height: 1.15;
+  animation: pulse 1.5s ease-in-out infinite;
+
+  /* ✅ 关键：允许换行 + 防溢出 */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+    @media (min-width: 520px) {
+  h1 {
+    white-space: nowrap; /* 大屏再强制一行 */
+  }
+}
+
 
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
